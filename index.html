@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JSON2CSV</title>
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/base16/railscasts.min.css"
+    integrity="sha512-rtvj6tMmkVaWoe4mh5qd8yiYRoWna8i4A6+sowSJgkVE0WONXLmAIE750g41aHKB6k5hHmD3HFZS2fQhg3m27g=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"
+    integrity="sha512-bgHRAiTjGrzHzLyKOnpFvaEpGzJet3z4tZnXGjpsCcqOnAH6VGUx9frc5bcIhKTVLEiCO6vEhNAgx5jtLUYrfA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/languages/json.min.js"
+    integrity="sha512-0xYvyncS9OLE7GOpNBZFnwyh9+bq4HVgk4yVVYI678xRvE22ASicF1v6fZ1UiST+M6pn17MzFZdvVCI3jTHSyw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="json2csv.js"></script>
+</head>
+
+<body>
+  <pre><code class="language-json"></code></pre>
+  <button>click</button>
+</body>
+<script>
+  const jsonData = [{ "id": "63abb3ec847cab5c97edf16e", "content": "eagle rock middle school ", "user": 22031956, "time": 1672197100662 }, { "id": "63abb32636716802375776be", "content": "Brendos middle school", "user": 21971479, "time": 1672196902528 }, { "id": "63abada6847cab5c97edefaf", "content": "Jefferson High School Lafayette Indiana ", "user": 22030581, "time": 1672195494987 }, { "id": "63abac5a36716802375774d8", "content": "boyton beach community high school ", "user": 4558083, "time": 1672195162115 }, { "id": "63aba94c847cab5c97edee5e", "content": "nicolet middle school\nbanning ca.", "user": 22031766, "time": 1672194380913 }, { "id": "63aba813847cab5c97ededec", "content": "Richard King High School", "user": 14805755, "time": 1672194067230 }, { "id": "63aba77e847cab5c97ededbd", "content": "st thomas high school in montreal", "user": 22031771, "time": 1672193918555 }, { "id": "63ab9de3847cab5c97edea67", "content": "theills NY feildstone middle school", "user": 22030181, "time": 1672191459233 }, { "id": "63ab91b33671680237576cb1", "content": "wake preparatory", "user": 1554299, "time": 1672188339559 }, { "id": "63ab914e3671680237576c9a", "content": "San Jacinto Highschool", "user": 22031015, "time": 1672188238704 }, { "id": "63ab8e8c3671680237576b6f", "content": "Grovetown Middle School", "user": 22030969, "time": 1672187532981 }, { "id": "63ab8ae03671680237576a75", "content": "John R Rogers highschool ", "user": 22030857, "time": 1672186592517 }, { "id": "63ab88b836716802375769a4", "content": "Lakeside high school  ohio", "user": 4681894, "time": 1672186040170 }, { "id": "63ab888a3671680237576995", "content": "Cony Highschool, Augusta ME", "user": 22025971, "time": 1672185994532 }, { "id": "63ab7041847cab5c97eddc6b", "content": "union high school in roosevelt utah", "user": 4954981, "time": 1672179777648 }, { "id": "63ab6c5c36716802375760e0", "content": "Pikeview Highs School", "user": 22029818, "time": 1672178780770 }, { "id": "63ab63d8847cab5c97edd910", "content": "Lake Crystal Wellcome Memorial Secondary\n\n", "user": 22029857, "time": 1672176600746 }, { "id": "63ab6311847cab5c97edd8c7", "content": "coppers cove high school ", "user": 15760669, "time": 1672176401052 }, { "id": "63ab6077847cab5c97edd7e7", "content": "\uD83E\uDDCB\uD83E\uDDC3\uD83C\uDF5A\uD83E\uDD11hi", "user": 21944989, "time": 1672175735004 }, { "id": "63ab54c8847cab5c97edd45c", "content": "GHS", "user": 22029334, "time": 1672172744133 }];
+  document.querySelector('code').innerHTML = JSON.stringify(jsonData)
+  hljs.highlightAll()
+
+  document.querySelector('button').addEventListener('click', () => {
+    buildData(jsonData).then((jsonData) => {
+      downloadCSV(jsonData)
+    })
+  })
+</script>
+
+</html>
